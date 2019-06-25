@@ -45,7 +45,10 @@
   margin-top: 10px;
 }
 
-.task_ul {}
+.task_ul {
+  max-height: 400px;
+  overflow-y: auto;
+}
 
 .task_ul li {
   list-style: none;
