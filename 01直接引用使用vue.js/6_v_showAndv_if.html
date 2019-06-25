@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v_show and v_if</title>
+</head>
+
+<body>
+  <div id="root">
+    <!-- v-show 和 v-if 的区别在哪? -->
+    <!-- v-show 只是元素的显示或是隐藏 但 v-if则是元素的存在或消失 -->
+    <p v-show="name_show">姓名:{{name}}</p>
+    <p v-if="age_show">年龄:{{age}}</p>
+    <!-- v-on 监听事件 -->
+    <button v-on:click="toggle_show_name()">显示/隐藏name</button>
+
+    <!-- @简写事件 -->
+    <button @click="toggle_show_age()">点击试试</button>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#root',
+      data: {
+        'name': 'zhangsan',
+        'age': 18,
+        name_show:true,
+        age_show:true
+      },
+      methods: {
+        btn_save() {
+         this.age+=1;
+        },
+        toggle_show_name(){
+          this.name_show=!this.name_show
+        },
+        toggle_show_age(){
+          this.age_show=!this.age_show;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

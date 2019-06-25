@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2_v_bind</title>
+  <style>
+    .a {
+      width: 100px;
+    }
+
+    .b {
+      height: 100px;
+    }
+
+    .c {
+      background: #ccc;
+    }
+  </style>
+</head>
+<!--指令是什么? 指令就是html的属性,是vue给html添加的属性-->
+
+<body>
+  <div id="root">
+    <p v-bind:title='age'>{{name}}</p>
+    <!-- 拼接字符串 -->
+    <p v-bind:title='age+"岁"'>{{name}}</p>
+    <!-- 使用冒号简写 -->
+    <p :title='age+"岁"'>{{name}}</p>
+    <a :href="url" target="_blank" rel="">点击跳转百度</a>
+    <!-- 从对象中获取属性绑定 -->
+    <img :src="img.url" :alt="img.alt" srcset="">
+
+    <!-- 绑定class的两种方式 1.普通字符串 2.数组 -->
+    <div :class="cls"></div>
+    <br>
+    <div :class="cls_arr"></div>
+    <br>
+    <!-- 绑定style的两种方式 -->
+
+    <div :style="sty"></div>
+    <br>
+    <div :style="sty_obj"></div>
+  </div>
+
+</body>
+<script src="./vue.js"></script>
+<script>
+  let vm = new Vue({
+    el: '#root',
+    data: {
+      'name': 'zhangsan',
+      'age': 18,
+      'url': 'http://www.baidu.com',
+      img: {
+        url: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=956367867,4242072092&fm=85&app=2&f=JPEG?w=121&h=75&s=3B85678694485D4D008F1B7C0300D078',
+        alt: '这是美女吗??'
+      },
+      cls: "a b c",
+      cls_arr: ['a', 'b', 'c'],
+      sty:'width:100px; height:200px; background:pink',
+      sty_obj:{
+        width:"100px",
+        height:"200px",
+        background:"pink"
+      }
+    },
+    methods: {
+      getName() {
+        return this.name;
+      }
+    }
+  });
+</script>
+
+</html>

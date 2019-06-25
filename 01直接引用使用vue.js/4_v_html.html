@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v_html</title>
+</head>
+
+<body>
+  <div id="root">
+    <input type="text" v-model="name">
+    <p>{{name}}</p>
+    <div>{{html}}</div>
+    <div v-html="html"></div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#root',
+      data: {
+        'name': 'zhangsan',
+        'age': 18,
+        html:`<p>this is some text1<p>
+              <p>this is some text2<p>
+              <p>this is some text3<p>
+        `
+      },
+      methods: {
+        getName() {
+          return this.name;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

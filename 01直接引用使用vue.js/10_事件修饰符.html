@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件修饰符</title>
+</head>
+
+<body>
+  <div id="root">
+    <!-- 无 事件修饰符时 事件会冒泡 执行了fn1后又执行了fn2 -->
+    <div id="outer" @click="fn2()">
+      <!-- 无stop时 事件冒泡 -->
+      <button @click="fn1()">按钮</button>
+
+      <!-- 有stop时 -->
+      <button @click.stop="fn1()">有stop修饰符的按钮</button>
+
+      <!-- 有once时,事件只执行一次 -->
+      <button @click.once="fn1()">once修饰符的按钮</button>
+
+      <!-- 不用prevent -->
+      <a href="http://www.baidu.com" @click="fn1()">这是链接</a>
+
+      <!-- 用prevent阻止按钮点击后执行页面的跳转 -->
+      <a href="http://www.baidu.com" @click.prevent="fn1()">这是有prevent的链接</a>
+
+      <!-- 当在文本框中按ctrl+enter才执行 fn1函数 -->
+      <input type="text"  @keydown.enter.ctrl="fn1()">
+
+    </div>
+
+    <!-- self 只执行触发源为本元素才执行 -->
+    <div @click.self="fn2()">
+      <button @click="fn1()">按钮</button>
+    </div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#root',
+      data:{},
+      methods:{
+        fn1(){
+          alert("in fn1")
+        },
+        fn2(){
+          alert("in fn2")
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

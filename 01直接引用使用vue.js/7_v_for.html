@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v_for</title>
+  <style>
+    li{
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+
+    <p v-show="name_show">姓名:{{name}}</p>
+    <p v-if="age_show">年龄:{{age}}</p>
+
+    <!-- 循环列表 -->
+    <ul>
+      <li v-for="item in list">{{item}}</li>
+    </ul>
+
+    <!-- 循环对象列表 -->
+    <ul>
+      <li v-for="item in list_obj">姓名:{{item.name}} &nbsp;&nbsp; 年龄:{{item.age}}</li>
+    </ul>
+
+    <!-- 循环的更多参数 -->
+    <ul>
+      <li v-for="item,index in list_obj" :key="list_obj.index">
+        <div>编号:{{index+1}}:姓名:{{item.name}}/ 年龄:{{age}}</div>
+      </li>
+    </ul>
+
+    <!-- 循环对象 -->
+    <ul>
+      <li v-for="value,key in obj">
+          <div>{{key}}:{{value}}</div>
+        </li>
+      </li>
+    </ul>
+
+    <!-- 循环数字 从1开始-->
+    <span v-for="i in 10" >{{i}}</span>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#root',
+      data: {
+        'name': 'zhangsan',
+        'age': 18,
+        name_show: true,
+        age_show: true,
+        list: ['zhangsan', 'lisi', 'wangwu'],
+        list_obj: [
+          { "name": "zhangsan", "age": 18 },
+          { "name": "lisi", "age": 19 },
+          { "name": "wangwu", "age": 20 }
+        ],
+        obj:{
+          "name":"zhangsan",
+          "age":18,
+          "gender":"男"
+        }
+      },
+      methods: {
+
+      }
+    });
+  </script>
+</body>
+
+</html>

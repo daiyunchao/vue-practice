@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>使用routerlink</title>
+</head>
+
+<body>
+  <div id="root">
+    <!-- 使用router-link name跳转 添加参数 -->
+    <router-link :to="{name:'a'}">链接到A</router-link>
+    <router-link :to="{name:'b',params:{id:12}}">链接到B</router-link>
+    <router-view></router-view>
+  </div>
+  <script src="../vue.js"></script>
+  <script src="../vue-router.js"></script>
+  <script>
+    // 路由表
+    let routers = new VueRouter({
+      routes: [
+        {
+          path: "/", component: { template: "<div>this is default</div>" }
+        },
+        {
+          path: "/a", name: "a", component: { template: "<div>this is aaa</div>" }
+        },
+        {
+          //获取参数的方法: {{$route.params.xxx}}
+          path: "/b", name: "b", component: { template: "<div>this is bbb {{$route.params.id}}</div>" }
+        }
+      ]
+    })
+    let vm = new Vue({
+      el: '#root',
+      data: {},
+      router: routers
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v_for</title>
+
+</head>
+
+<body>
+  <div id="root">
+
+    <p>姓名:{{name}}</p>
+    <p>年龄:{{age}}</p>
+
+    <!-- 添加了 v-pre后,该区域内的内容不会被渲染 -->
+    <div v-pre>
+      <p>姓名:{{name}}</p>
+      <p>年龄:{{age}}</p>
+    </div>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#root',
+      data: {
+        'name': 'zhangsan',
+        'age': 18,
+      },
+      methods: {
+      }
+    });
+  </script>
+</body>
+
+</html>

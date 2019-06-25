@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue-pratice</title>
+</head>
+<body>
+  <div id="root">
+    <p>{{a}}</p>
+    <div> <button @click="goa()">跳转A</button>
+      <button @click="gob()">跳转B</button></div>
+    <router-view name="header"></router-view>
+    <router-view></router-view>
+    <router-view name="footer"></router-view>
+  </div>
+  <script src="./dist/main.js"></script>
+</body>
+</html>

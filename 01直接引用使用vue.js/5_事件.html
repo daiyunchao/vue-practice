@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件</title>
+</head>
+
+<body>
+  <div id="root">
+    <p>姓名:{{name}}</p>
+    <p>年龄:{{age}}</p>
+    <!-- v-on 监听事件 -->
+    <button v-on:click="btn_save()">点击试试</button>
+
+    <!-- @简写事件 -->
+    <button @click="btn_save()">点击试试</button>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#root',
+      data: {
+        'name': 'zhangsan',
+        'age': 18,
+      },
+      methods: {
+        btn_save() {
+          this.age += 1;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

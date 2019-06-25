@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双向绑定</title>
+</head>
+
+<body>
+  <div id="root">
+    <input type="text" v-model="name">
+    <p>{{name}}</p>
+  </div>
+</body>
+<script>
+  var _data = {
+    "name": "zhangsan",
+    "age": 18
+  };
+
+  //模拟节点元素:
+  let el = "#root";
+  let root = document.querySelector(el);
+  let template = root.innerHTML;
+
+
+
+
+  //监听数据变化并render
+  //用户通过 data访问到_data 实现了监听数据的变化,数据变化则render
+  let data = new Proxy(_data, {
+    set(obj, key, value) {
+      console.log("in set obj==>", obj);
+      console.log("in set key==>", key);
+      console.log("in set value==>", value);
+
+      obj[key] = value;
+      render();
+    }
+  })
+
+
+  //渲染
+  let render = function () {
+    root.innerHTML = template.replace(/\{\{\w+\}\}/g, str => {
+      console.log("str==>", str);
+      let key = str.substring(2, str.length - 2);
+      console.log("key==>", key);
+      return _data[key];
+    });
+
+    let inputs = document.getElementsByTagName('input');
+    inputs = Array.from(inputs);
+    inputs
+      .filter(ele => { return ele.getAttribute('v-model') })
+      .forEach(input => {
+        console.log("input==>", input.getAttribute('v-model'));
+        let key = input.getAttribute('v-model')
+        input.value = _data[key];
+        input.oninput = function () {
+          data[key] = this.value;
+        }
+      })
+  }
+
+  render();
+
+</script>
+
+</html>
