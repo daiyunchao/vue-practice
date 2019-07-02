@@ -1,0 +1,100 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.con {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-top: 0px;
+  min-height: 600px;
+  margin-top: 100px;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  background: rgb(205, 62, 54);
+  line-height: 60px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  border-right: 1px solid rgb(205, 62, 54);
+}
+
+.header span {
+  padding-left: 10px;
+}
+
+.add_task {
+  margin-left: 10px;
+}
+
+.add_task_input {
+  width: 400px;
+  height: 30px;
+  padding-left: 5px;
+  margin-top: 5px;
+  outline: none;
+}
+
+.task_list {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.task_ul {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.task_ul li {
+  list-style: none;
+  min-height: 40px;
+  line-height: 40px;
+  word-break: break-all;
+  border-bottom: 1px solid #ccc;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.task_ul input{
+  width: 20px;
+  height: 20px;
+  margin-right:5px;
+}
+
+.task-status {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-left: 10px;
+  margin-top: 15px;
+  margin-right: 10px;
+  font-size: 14px;
+  padding: 10px 0px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.task-status-count{
+  color: rgb(205, 62, 54);
+}
+.taskStatusBtns button{
+  width: 70px; height: 30px; border: 1px solid #ccc; background: white;
+  outline: none;cursor: pointer;
+}
+.task_item_not_complate{
+
+}
+.task_item_complate{
+  text-decoration:line-through;
+  color: #999;
+}
+
+.btn_active{
+  border-color: rgb(205, 62, 54) !important;
+}
